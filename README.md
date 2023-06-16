@@ -1,4 +1,4 @@
-# Project README
+# staffVerify
 
 This project contains code files and modules related to user authentication, company registration, and payment processing. It is built using the Express framework for Node.js.
 
