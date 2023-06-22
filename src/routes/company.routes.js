@@ -1,8 +1,8 @@
-const express = require("express")
-const paymentsControl = require("../controllers/company.controllers")
+const express = require("express");
+const companyControllers = require("../controllers/company.controllers");
 
-const router = express.Router ()
+const router = express.Router();
 
-router.post("/signup", companyControllers.registerCompany)
+router.post("/createAccount", companyControllers.createAccount);
 
-module.exports = router
+module.exports = router;
