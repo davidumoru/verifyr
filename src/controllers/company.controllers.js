@@ -1,8 +1,8 @@
-function registerCompany(req, res) {
-    console.log(req.body)
-    res.status(200).json({
-        message: "Company registered"
-    })
+const companyServices = require("../services/company.services");
+
+async function createAccount(req, res) {
+  const response = await companyServices.createCompany(req.body);
+  res.status(response.status).json(response);
 }
 
-module.exports = {registerCompany}
+module.exports = { createAccount };
