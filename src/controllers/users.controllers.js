@@ -1,21 +1,23 @@
-const usersServices = require("../services/user.services")
+const users = require("../dummies/users");
+const usersServices = require("../services/users.services");
 
-function loginController(req, res) {
-  console.log(req.body);
-  usersServices.loginService(req.body)
-  res.status(200).json({
-    message: "Login Successful",
-  });
+function loginControllers(req, res) {
+  const response = usersServices.loginUser(req.body);
+  res.status(response.status).json(response);
 }
 
-function registerController(req, res) {
+function registerControllers(req, res) {
   console.log(req.body);
-  res.status(200).json({
-    message: "Login Successful",
-  });
+  res.status(200).json({ message: "User created" });
+}
+
+function getUsers(req, res) {
+  console.log(req.body);
+  res.status(200).json(users);
 }
 
 module.exports = {
-  loginController,
-  registerController,
+  loginControllers,
+  registerControllers,
+  getUsers,
 };
