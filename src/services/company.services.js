@@ -3,7 +3,7 @@ const responses = require("../utils/response");
 const jwt = require("jsonwebtoken");
 
 const createCompany = async (payload) => {
-  const [name, contactEmail, regNo] = payload;
+  const {name, contactEmail, regNo} = payload;
 
   const foundName = await Company.findOne({ name: name });
   if (foundName) {
