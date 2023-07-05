@@ -1,4 +1,5 @@
 const Company = require("../models/company.models");
+const responses = require("../utils/response");
 const jwt = require("jsonwebtoken");
 
 const createCompany = async (payload) => {
@@ -6,62 +7,44 @@ const createCompany = async (payload) => {
 
   const foundName = await Company.findOne({ name: name });
   if (foundName) {
-    return {
-      message: "Company already exists",
-      status: 400,
-      status: "failure",
-    };
+    return responses.buildFailureResponse("Company name already exists", 400);
   }
 
   const foundContactEmail = await Company.findOne({
     contactEmail: contactEmail,
   });
   if (foundContactEmail) {
-    return {
-      message: "Contact email already exists",
-      status: 400,
-      status: "failure",
-    };
+    return responses.buildFailureResponse("Contact email already exists", 400);
   }
 
   const foundRegNo = await Company.findOne({ regNo: regNo });
   if (foundRegNo) {
-    return {
-      message: "Registration number already exists",
-      status: 400,
-      status: "failure",
-    };
+    return responses.buildFailureResponse(
+      "Registration number already exists",
+      400
+    );
   }
 
   const newCompany = await Company.create(payload);
-  return {
-    message: "Company created successfully",
-    status: 201,
-    status: "success",
-    data: newCompany,
-  };
+  return responses.buildSuccessResponse(
+    "Company created successfully",
+    201,
+    newCompany
+  );
 };
 
 const login = async (payload) => {
   try {
     const foundUser = await staff.findOne({ email: payload.email });
     if (!foundUser) {
-      return {
-        message: "User does not exist",
-        statusCode: 404,
-        status: "failure",
-      };
+      return responses.buildFailureResponse("User does not exist", 404);
     }
     const foundPassword = await bcrypt.compare(
       payload.password,
       foundUser.password
     );
     if (!foundPassword) {
-      return {
-        message: "Password is incorrect",
-        status: 403,
-        status: "failure",
-      };
+      return responses.buildFailureResponse("Password is incorrect", 400);
     }
     const token = jwt.sign(
       {
@@ -74,11 +57,7 @@ const login = async (payload) => {
       { expiresIn: "30" }
     );
   } catch (error) {
-    return {
-      message: "Something went wrong",
-      status: 500,
-      status: "failure",
-    };
+    return responses.buildFailureResponse("Something went wrong", 500);
   }
 };
 
