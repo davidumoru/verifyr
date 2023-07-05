@@ -3,7 +3,7 @@ const responses = require("../utils/response");
 const jwt = require("jsonwebtoken");
 
 const createCompany = async (payload) => {
-  const {name, contactEmail, regNo} = payload;
+  const { name, contactEmail, regNo } = payload;
 
   const foundName = await Company.findOne({ name: name });
   if (foundName) {
@@ -56,6 +56,8 @@ const login = async (payload) => {
       process.env.SECRET_KEY,
       { expiresIn: "30" }
     );
+    foundUser.accessToken = token;
+    return responses.buildSuccessResponse("Login successful", 200, foundUser);
   } catch (error) {
     return responses.buildFailureResponse("Something went wrong", 500);
   }
