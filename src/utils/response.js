@@ -6,4 +6,13 @@ function buildFailureResponse (message, statusCode) {
   }
 }
 
-module.exports = {buildFailureResponse}
+function buildSuccessResponse (message, statusCode) {
+    return {
+      status: "success",
+      message,
+      statusCode
+    }
+  }
+  
+
+module.exports = {buildFailureResponse, buildSuccessResponse}
