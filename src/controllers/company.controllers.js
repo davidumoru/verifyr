@@ -5,4 +5,9 @@ async function createAccount(req, res) {
   res.status(response.status).json(response);
 }
 
-module.exports = { createAccount };
+async function login(req, res) {
+  const response = await companyServices.login(req.body);
+  res.status(response.status).json(response);
+}
+
+module.exports = { createAccount, login };
