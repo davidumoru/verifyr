@@ -11,11 +11,6 @@ function registerControllers(req, res) {
   res.status(200).json({ message: "User created" });
 }
 
-function getUsers(req, res) {
-  console.log(req.body);
-  res.status(200).json(users);
-}
-
 module.exports = {
   loginControllers,
   registerControllers,
