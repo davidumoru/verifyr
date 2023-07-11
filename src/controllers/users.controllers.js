@@ -13,6 +13,5 @@ function registerControllers(req, res) {
 
 module.exports = {
   loginControllers,
-  registerControllers,
-  getUsers,
+  registerControllers
 };
