@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken')
-const Staff = require('../models/staff.models')
 
 
 async function authenticate(req, res, next) {

@@ -2,7 +2,6 @@ const express = require('express')
 const dotenv = require('dotenv')
 const rateLimit = require('express-rate-limit')
 
-const usersRouter = require("./routes/users.routes")
 const companiesRouter = require("./routes/company.routes")
 const connectDB = require("./configs/database")
 
@@ -22,7 +21,6 @@ connectDB(process.env.MONGO_URI)
 
 app.use(express.json())
 app.use(limiter)
-app.use('/users', usersRouter)
 app.use('/companies', companiesRouter)
 
 app.get("/", (req, res) => {

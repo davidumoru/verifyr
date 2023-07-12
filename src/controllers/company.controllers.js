@@ -1,18 +1,35 @@
-const companyServices = require("../services/company.services");
+const companyServices = require("../services/company.services")
 
-async function createAccount(req, res) {
-  const response = await companyServices.createCompany(req.body);
-  res.status(response.status).json(response);
-}
-
+// Create account function
+const createAccount = async (req, res) => {
+  const data = await companyServices.createCompany(req.body)
+  res.status(data.statusCode).json(data)
+};
+//create admin function
 const createAdmin = async (req, res) => {
   const data = await companyServices.createAdmin(req.body)
   res.status(data.statusCode).json(data)
 };
 
-async function login(req, res) {
-  const response = await companyServices.login(req.body);
-  res.status(response.status).json(response);
-}
+//createStaff function
+const createStaff = async (req, res) => {
+  const data = await companyServices.createStaff(req.body)
+  res.status(data.statusCode).json(data)
+};
 
-module.exports = { createAccount, createAdmin, login };
+//login function
+const login = async (req, res) => {
+  const data = await companyServices.login(req.body)
+  res.status(data.statusCode).json(data)
+};
+
+//get companies function
+const getAllCompanies = async (req, res) => {
+    const data = await companyServices.getAllCompanies();
+    res.status(data.statusCode).json(data);
+ 
+};
+
+
+
+module.exports = { createAccount, createAdmin, login, createStaff, getAllCompanies };
