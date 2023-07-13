@@ -30,6 +30,22 @@ const getAllCompanies = async (req, res) => {
  
 };
 
+//forgot password function
+const forgotPassword = async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    const response = await companyService.forgotPassword({ email });
+    res.status(response.statusCode).json(response);
+  } catch (error) {
+    console.error('Error sending forgot password email:', error);
+    res.status(500).json({
+      message: 'Internal server error',
+      status: 'failure',
+      statusCode: 500,
+    });
+  }
+};
 
 
-module.exports = { createAccount, createAdmin, login, createStaff, getAllCompanies };
+module.exports = { createAccount, createAdmin, login, createStaff, getAllCompanies, forgotPassword };

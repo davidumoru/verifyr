@@ -2,6 +2,8 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Company = require("../models/company.models")
 const responses = require("../utils/response")
+const emailService = require('./email.services');
+const Staff = require('../models/staff.models');
 
 async function createCompany (payload) {
     /**
@@ -143,11 +145,30 @@ const login = async (payload) => {
     }
 }
 
-
+const forgotPassword = async (payload) => {
+    // Find the user by email
+    const foundUser = await Staff.findOne({ email: payload.email });
+    if (!foundUser) {
+      return responses.buildFailureResponse('Email not found', 404);
+    }
+  
+    const resetPin = generateResetPin();
+    foundUser.resetPin = resetPin;
+    await foundUser.save();
+  
+    const emailSubject = 'Forgot Password - Reset Pin';
+    const emailText = `Your reset pin is: ${resetPin}`;
+    const emailHtml = `<p>Your reset pin is: ${resetPin}</p>`;
+  
+    await emailService.sendEmail(foundUser.email, emailSubject, emailText, emailHtml);
+  
+    return responses.buildSuccessResponse('Password reset email sent', 200);
+  };   
 
 module.exports = {
     createCompany,
     createAdmin,
     login,
-    createStaff
+    createStaff,
+    forgotPassword
 }

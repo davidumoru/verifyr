@@ -8,6 +8,7 @@ router.post('/create-admin', authMiddleware.authenticate, companyControllers.cre
 router.post('/create-staff', authMiddleware.authenticate, companyControllers.createStaff);
 router.post('/create-account', companyControllers.createAccount);
 router.post('/login', companyControllers.login);
+router.post('/forgot-password', companyControllers.forgotPassword);
 router.get('/', companyControllers.getAllCompanies);
 
 module.exports = router;
