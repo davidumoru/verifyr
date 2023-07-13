@@ -6,6 +6,7 @@ const router = express.Router();
 
 router.post('/create-admin', authMiddleware.authenticate, companyControllers.createAdmin);
 router.post('/create-staff', authMiddleware.authenticate, companyControllers.createStaff);
+router.post('/create-account', companyControllers.createAccount);
 router.post('/login', companyControllers.login);
 router.get('/', companyControllers.getAllCompanies);
 
