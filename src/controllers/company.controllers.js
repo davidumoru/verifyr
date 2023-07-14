@@ -35,7 +35,7 @@ const forgotPassword = async (req, res) => {
   const { email } = req.body;
 
   try {
-    const response = await companyService.forgotPassword({ email });
+    const response = await companyServices.forgotPassword({ email });
     res.status(response.statusCode).json(response);
   } catch (error) {
     console.error('Error sending forgot password email:', error);
