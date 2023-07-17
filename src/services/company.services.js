@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Company = require("../models/company.models")
 const responses = require("../utils/response")
+const Pin = require("../utils/generateRandomPin")
 const emailService = require('./email.services');
 const Staff = require('../models/staff.models');
 
@@ -152,7 +153,7 @@ const forgotPassword = async (payload) => {
       return responses.buildFailureResponse('Email not found', 404);
     }
   
-    const resetPin = generateResetPin();
+    const resetPin = Pin.generateRandomPin();
     foundUser.resetPin = resetPin;
     await foundUser.save();
   
