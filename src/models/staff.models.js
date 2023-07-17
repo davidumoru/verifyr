@@ -18,7 +18,7 @@ const staffSchema = mongoose.Schema(
       required: true,
       unique: true,
     },
-    contactEmail: {
+    email: {
       type: String,
       required: true,
       unique: true,
