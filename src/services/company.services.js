@@ -183,8 +183,8 @@ const forgotPassword = async (payload) => {
   const emailHtml = `
     <body style="font-family: Arial, sans-serif; background-color: #f7f7f7; color: #333; margin: 0; padding: 0;">
     <div style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: #fff;">
-      <div style="background-color: #00140B; padding: 15px;">
-        <p style="color: #F7FFF2; font-family: Helvetica, Arial, sans-serif; font-size: 45px; padding-bottom: 10px; text-align: center;"><strong>.staffVerify</strong></p>
+      <div style="background-color: #F7FFF2; padding: 15px;">
+        <p style="color: #00140B; font-family: Helvetica, Arial, sans-serif; font-size: 45px; padding-bottom: 10px; text-align: center;"><strong>.staffVerify</strong></p>
       </div>
       <h1 style="color: #007bff; text-align: center;">Password Reset</h1>
       <p>Hello,</p>
