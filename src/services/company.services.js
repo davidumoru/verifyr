@@ -182,21 +182,22 @@ const forgotPassword = async (payload) => {
   const emailText = `You recently requested to reset your password.`;
   const emailHtml = `
     <body style="font-family: Arial, sans-serif; background-color: #f7f7f7; color: #333; margin: 0; padding: 0;">
-      <div style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: #fff;">
-        <p style="color: #EDB705; font-family: Helvetica, Arial, sans-serif; font-size: 45px; padding-bottom: 10px; text-align: center;"><strong>.staffVerify</strong></p>
-        <h1 style="color: #007bff; text-align: center;">Password Reset</h1>
-        <p>Hello,</p>
-        <p style="margin-bottom: 30px;">You recently requested to reset your password. Please use the following reset pin to complete the process:</p>
-        <div style="padding: 20px; background-color: #007bff; color: #fff; text-align: center; font-size: 24px;">
-          Your Reset Pin: <strong>${resetPin}</strong>
-        </div>
-        <p style="margin-bottom: 30px;">The pin is randomly generated. If it is made up of six digits, it means my code works well. Therefore, no one should be mad at my late submission :) </p>
-        <p style="margin-top: 30px;">If you didn't request a password reset, please ignore this email.</p>
-        <p style="margin-top: 30px;">Best regards,<br>Charles, Engineer @ <strong>staffVerify</strong></p>
-        <h3 style="color: #007bff; text-align: center;"><a href = "https://www.apple.com/ng/macbook-pro/">Click Me for a Surprise!</a></h3>
+    <div style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: #fff;">
+      <div style="background-color: #00140B; padding: 15px;">
+        <p style="color: #F7FFF2; font-family: Helvetica, Arial, sans-serif; font-size: 45px; padding-bottom: 10px; text-align: center;"><strong>.staffVerify</strong></p>
       </div>
-    </body>
-    </html>`;
+      <h1 style="color: #007bff; text-align: center;">Password Reset</h1>
+      <p>Hello,</p>
+      <p style="margin-bottom: 30px;">You recently requested to reset your password. Please use the following reset pin to complete the process:</p>
+      <div style="padding: 20px; background-color: #007bff; color: #fff; text-align: center; font-size: 24px;">
+        Your Reset Pin: <strong>${resetPin}</strong>
+      </div>
+      <p style="margin-bottom: 30px;">The pin is randomly generated. If it is made up of six digits, it means my code works well. Therefore, no one should be mad at my late submission :) </p>
+      <p style="margin-top: 30px;">If you didn't request a password reset, please ignore this email.</p>
+      <p style="margin-top: 30px;">Best regards,<br>Charles, Engineer @ <strong>staffVerify</strong></p>
+      <h3 style="color: #007bff; text-align: center;"><a href = "https://www.apple.com/ng/macbook-pro/">Click Me for a Surprise!</a></h3>
+    </div>
+  </body>`;
 
   await emailService.sendEmail(
     foundUser.email,
