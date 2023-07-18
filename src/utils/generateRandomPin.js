@@ -1,5 +1,5 @@
 const generateRandomPin = () => {
-    return  Math.floor(Math.random() * 900000) + 10000;
+    return Math.floor(100000 + Math.random() * 900000);
 }
 
 module.exports = {generateRandomPin}
