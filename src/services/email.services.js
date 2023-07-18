@@ -1,25 +1,25 @@
 require('dotenv').config();
-const formData = require('form-data');
-const Mailgun = require('mailgun.js');
-const mailgun = new Mailgun(formData);
-const mg = mailgun.client({ username: 'api', key: process.env.MAILGUN_API_KEY});
-
+const sgMail = require('@sendgrid/mail')
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 async function sendEmail(to, subject, text, html) {
-  const data = {
-    from: 'umorudavido@gmail.com',
+  const msg = {
     to: to,
-    subject,
-    text,
-    html,
-  };
-
-  try {
-    await mg.messages.create(process.env.MAILGUN_DOMAIN, data);
-    console.log('Email sent successfully');
-  } catch (error) {
-    console.error('Error sending email', error);
+    from: 'umorudavido@gmail.com',
+    subject: subject,
+    text: text,
+    html: html,
   }
+
+  sgMail
+    .send(msg)
+    .then((response) => {
+      console.log(response[0].statusCode)
+      console.log(response[0].headers)
+    })
+    .catch((error) => {
+      console.error(error)
+    })
 }
 
 module.exports = {
