@@ -6,8 +6,9 @@ This project contains code files and modules related to user authentication, com
 
 To install and set up the project, follow these steps:
 
-1. Clone the repository to your local machine.
-2. Run `npm install` to install the project dependencies.
+1. Clone the repository to your local machine: `git clone https://github.com/davidumoru/staffVerify.git`
+2. Navigate to the project directory `cd your-repository`
+3. Run `npm install` to install the project dependencies.
 
 ## Usage
 
@@ -21,34 +22,34 @@ This will start the Express server, and the project will be accessible at the sp
 
 The project includes the following endpoints:
 
-- `/login` - A POST request to authenticate a user.
-- `/users` - A GET request to retrieve user information.
-- `/signup` - A POST request to register a company.
-- `/pay` - A POST request to process a payment.
-- `/receipt` - A GET request to retrieve a payment receipt.
+- **POST** `/create-admin` - Create a new admin user for the company.
+- **POST** `/create-staff` - Create a new staff user for the company.
+- **POST** `/create-account` - Create a new company account.
+- **POST** `/login` - Authenticate a user (admin) and generate an access token.
+- **POST** `/forgot-password` - Send a password reset email to the user's email address.
+- **GET** `/` - Get a list of all companies.
 
-## User Authentication
+## Technologies
 
-The user authentication functionality allows users to log in and retrieve their information. The login process requires providing an email and password. If the credentials match a user in the system, a successful login response is returned. Otherwise, appropriate error messages are returned.
+The project includes the following technologies:
 
-## Company Registration
-
-The company registration feature allows new companies to sign up by providing their details such as name, address, contact information, and logo. Upon successful registration, a confirmation message is returned.
-
-## Payment Processing
-
-The payment processing functionality enables users to make payments. A POST request to the `/pay` endpoint initiates the payment process. If the payment is successful, a GET request to the `/receipt` endpoint returns a payment receipt.
+- Node.js
+- Express.js
+- MongoDB
+- bcrypt
+- jsonwebtoken
+- SendGrid
 
 ## Contributing
 
 Contributions are welcome! If you would like to contribute to this project, please follow these steps:
 
 1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Commit your changes.
-4. Push the branch to your forked repository.
+2. Create a new branch for your feature or bug fix: `git checkout -b feature-name`
+3. Make changes and Commit them: `git commit -m "Add some feature"`
+4. Push the branch to your forked repository: `git push origin feature-name`
 5. Submit a pull request with a description of your changes.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt) file for more information.
