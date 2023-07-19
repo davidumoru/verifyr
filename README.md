@@ -1,6 +1,7 @@
+<div align = "center">
 # staffVerify
-
-This project contains code files and modules related to user authentication, company registration, and payment processing. It is built using the Express framework for Node.js.
+#####  Building trust, one verification at a time: staffVerify, the app that brings certainty to your professional connections
+</div>
 
 ## Installation
 
