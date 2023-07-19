@@ -1,8 +1,6 @@
 const express = require('express')
 const dotenv = require('dotenv')
 const rateLimit = require('express-rate-limit')
-const fs = require('fs');
-const { marked } = require('marked'); 
 
 const companiesRouter = require("./routes/company.routes")
 const connectDB = require("./configs/database")
