@@ -1,6 +1,9 @@
 <div align = "center">
+
 # staffVerify
-#####  Building trust, one verification at a time: staffVerify, the app that brings certainty to your professional connections
+
+####  Building trust, one verification at a time: staffVerify, the app that brings certainty to your professional connections
+
 </div>
 
 ## Installation
@@ -23,7 +26,7 @@ This will start the Express server, and the project will be accessible at the sp
 
 The project includes the following endpoints:
 
-- **POST** `/create-admin` - Create a new admin user for the company.
+### **POST** `/create-admin` - Create a new admin user for the company.
 **Request Body:**
 ```
 {
@@ -53,7 +56,7 @@ The project includes the following endpoints:
 }
 ```
 
-- **POST** `/create-staff` - Create a new staff user for the company.
+### **POST** `/create-staff` - Create a new staff user for the company.
 **Request Body:**
 ```
 {
@@ -93,7 +96,7 @@ The project includes the following endpoints:
 }
 ```
 
-- **POST** `/create-account` - Create a new company account.
+### **POST** `/create-account` - Create a new company account.
 **Request Body:**
 ```
 {
@@ -127,7 +130,7 @@ The project includes the following endpoints:
 }
 ```
 
-- **POST** `/login` - Authenticate a user (admin) and generate an access token.
+### **POST** `/login` - Authenticate a user (admin) and generate an access token.
 **Request Body:**
 ```
 {
@@ -151,7 +154,7 @@ The project includes the following endpoints:
 }
 ```
 
-- **POST** `/forgot-password` - Send a password reset email to the user's email address.
+### **POST** `/forgot-password` - Send a password reset email to the user's email address.
 **Request Body:**
 ```
 {
@@ -168,7 +171,7 @@ The project includes the following endpoints:
 ```
 
 
-- **GET** `/` - Get a list of all companies.
+### **GET** `/` - Get a list of all companies.
 **Response:**
 ```
 {
