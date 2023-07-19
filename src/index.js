@@ -25,19 +25,11 @@ app.use(express.json())
 app.use(limiter)
 app.use('/companies', companiesRouter)
 
-app.get('/', (req, res) => {
-// Read the contents of README.md and parse it as markdown
-fs.readFile('README.md', 'utf8', (err, data) => {
-    if (err) {
-    res.status(500).send('Error reading README.md');
-    } else {
-    // Parse markdown to HTML using marked
-    const htmlContent = marked(data);
-    // Send the HTML content as the response
-    res.send(htmlContent);
-    }
-});
-});
+app.get("/", (req, res) => {
+    res.status(200).json({
+        message: "I am running"
+    })
+})
 
 app.listen(PORT, () => {
     console.log(`Server is running with speed at port ${PORT}`);
