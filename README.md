@@ -15,7 +15,7 @@ To install and set up the project, follow these steps:
 
 To start the project, run the following command:
 
-`npm start`
+`npm run dev`
 
 This will start the Express server, and the project will be accessible at the specified port.
 
