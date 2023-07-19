@@ -11,7 +11,7 @@
 To install and set up the project, follow these steps:
 
 1. Clone the repository to your local machine: `git clone https://github.com/davidumoru/staffVerify.git`
-2. Navigate to the project directory `cd your-repository`
+2. Navigate to the project directory `cd staffVerify`
 3. Run `npm install` to install the project dependencies.
 
 ## Usage
