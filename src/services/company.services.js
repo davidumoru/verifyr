@@ -6,6 +6,19 @@ const Pin = require("../utils/generateRandomPin");
 const emailService = require("./email.services");
 const Staff = require("../models/staff.models");
 
+async function getAllCompanies() {
+  try {
+    const companies = await Company.find();
+    return responses.buildSuccessResponse(
+      'Successfully fetched all companies',
+      200,
+      companies
+    );
+  } catch (error) {
+    return responses.buildFailureResponse('Failed to fetch companies', 500);
+  }
+}
+
 async function createCompany(payload) {
   /**
    * Check if name and email and regNo [are already registered
@@ -215,4 +228,5 @@ module.exports = {
   login,
   createStaff,
   forgotPassword,
+  getAllCompanies,
 };
