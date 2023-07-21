@@ -9,6 +9,7 @@ router.post('/create-staff', authMiddleware.authenticate, companyControllers.cre
 router.post('/create-account', companyControllers.createAccount);
 router.post('/login', companyControllers.login);
 router.post('/forgot-password', companyControllers.forgotPassword);
+router.get('/staff', companyControllers.searchStaff);
 router.get('/', companyControllers.getAllCompanies);
 
 module.exports = router;
