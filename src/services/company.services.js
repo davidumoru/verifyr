@@ -222,6 +222,27 @@ const forgotPassword = async (payload) => {
   return responses.buildSuccessResponse("Password reset email sent", 200);
 };
 
+const searchStaff = async (query) => {
+  try {
+    const keyword = query.search
+      ? {
+         $or: [
+          {firstName: {$regex: query.search, $options: "i"}},
+          {lastName: {$regex: query.search, $options: "i"}},
+          {email: {$regex: query.search, $options: "i"}},
+         ],
+          company: query.company,
+        }
+      : {}
+
+    const foundStaff = await Staff.find(keyword);
+    return responses.buildSuccessResponse("Staff Fetched", 200, foundStaff)
+  } catch (error) {
+    console.log(error);
+  }
+
+}
+
 module.exports = {
   createCompany,
   createAdmin,
@@ -229,4 +250,5 @@ module.exports = {
   createStaff,
   forgotPassword,
   getAllCompanies,
+  searchStaff,
 };
