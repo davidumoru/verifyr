@@ -30,6 +30,13 @@ const getAllCompanies = async (req, res) => {
  
 };
 
+//search staff
+const searchStaff = async (req, res) => {
+  const data = await companyServices.searchStaff(req.query);
+  res.status(data.statusCode).json(data);
+
+};
+
 //forgot password function
 const forgotPassword = async (req, res) => {
   const { email } = req.body;
@@ -48,4 +55,4 @@ const forgotPassword = async (req, res) => {
 };
 
 
-module.exports = { createAccount, createAdmin, login, createStaff, getAllCompanies, forgotPassword };
+module.exports = { createAccount, createAdmin, login, createStaff, getAllCompanies, forgotPassword, searchStaff };
