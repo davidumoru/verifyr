@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/index.js",
+    "start": "npm run build && node dist/index.js",
     "dev": "nodemon src/index.js",
-    "build": "npm install && echo 'Starting build process...'"
+    "build": "npm install && babel index.js -d dist && echo 'Starting build process...'"
   },
   "keywords": [],
   "author": "",
