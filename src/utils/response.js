@@ -1,25 +1,25 @@
-function buildFailureResponse (message, statusCode) {
+function buildFailureResponse(message, statusCode) {
   return {
     status: "failure",
     message,
-    statusCode
-  }
+    statusCode,
+  };
 }
 
-function buildSuccessResponse (message, statusCode, data) {
+function buildSuccessResponse(message, statusCode, data) {
   if (data) {
     return {
       status: "success",
       message,
       statusCode,
-      data
-    }
+      data,
+    };
   }
   return {
     status: "success",
     message,
-    statusCode
-  }
+    statusCode,
+  };
 }
 
-module.exports = {buildFailureResponse, buildSuccessResponse}
+module.exports = { buildFailureResponse, buildSuccessResponse };

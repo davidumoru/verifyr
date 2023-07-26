@@ -10,12 +10,12 @@ async function getAllCompanies() {
   try {
     const companies = await Company.find();
     return responses.buildSuccessResponse(
-      'Successfully fetched all companies',
+      "Successfully fetched all companies",
       200,
       companies
     );
   } catch (error) {
-    return responses.buildFailureResponse('Failed to fetch companies', 500);
+    return responses.buildFailureResponse("Failed to fetch companies", 500);
   }
 }
 
@@ -226,22 +226,21 @@ const searchStaff = async (query) => {
   try {
     const keyword = query.search
       ? {
-         $or: [
-          {firstName: {$regex: query.search, $options: "i"}},
-          {lastName: {$regex: query.search, $options: "i"}},
-          {email: {$regex: query.search, $options: "i"}},
-         ],
+          $or: [
+            { firstName: { $regex: query.search, $options: "i" } },
+            { lastName: { $regex: query.search, $options: "i" } },
+            { email: { $regex: query.search, $options: "i" } },
+          ],
           company: query.company,
         }
-      : {}
+      : {};
 
     const foundStaff = await Staff.find(keyword);
-    return responses.buildSuccessResponse("Staff Fetched", 200, foundStaff)
+    return responses.buildSuccessResponse("Staff Fetched", 200, foundStaff);
   } catch (error) {
     console.log(error);
   }
-
-}
+};
 
 module.exports = {
   createCompany,

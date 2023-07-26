@@ -1,13 +1,13 @@
-const Ajv = require('ajv');
+const Ajv = require("ajv");
 
 const ajv = new Ajv();
 const schema = {
-  type: 'object',
+  type: "object",
   properties: {
-    userId: { type: 'number' },
-    username: { type: 'string' }
+    userId: { type: "number" },
+    username: { type: "string" },
   },
-  required: ['userId', 'username']
+  required: ["userId", "username"],
 };
 const validate = ajv.compile(schema);
 
