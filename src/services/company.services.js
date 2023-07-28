@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const Company = require("../models/company.models");
 const responses = require("../utils/response");
 const Pin = require("../utils/generateRandomPin");
-const emailService = require("./email.services");
+const emailUtil = require("./email.js");
 const Staff = require("../models/staff.models");
 
 async function getAllCompanies() {
@@ -212,7 +212,7 @@ const forgotPassword = async (payload) => {
     </div>
   </body>`;
 
-  await emailService.sendEmail(
+  await emailUtil.sendEmail(
     foundUser.email,
     emailSubject,
     emailText,
