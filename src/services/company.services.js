@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const Company = require("../models/company.models");
 const responses = require("../utils/response");
 const Pin = require("../utils/generateRandomPin");
-const emailUtil = require("./email.js");
+const emailUtil = require("../utils/email.js");
 const Staff = require("../models/staff.models");
 
 async function getAllCompanies() {
