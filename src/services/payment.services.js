@@ -25,7 +25,7 @@ const initiatePayment = async (payload) => {
     return responses.buildSuccessResponse(
       "Transaction Initiated",
       200,
-      response
+      response.data
     );
   } catch (error) {
     console.log(error);
