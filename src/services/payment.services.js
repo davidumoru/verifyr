@@ -33,6 +33,35 @@ const initiatePayment = async (payload) => {
   }
 };
 
+const paystackWebhook = async (payload) => {
+  try {
+    const foundUser = await payment.findOne({
+      reference: payload.data.reference,
+    });
+
+    const updateObject = {
+      ipAddress: payload.data.ip_address,
+      currency: payload.data.currency,
+      channel: payload.data.channel,
+      transactionId: payload.data.id,
+      status: payload.data.status,
+      paidAt: payload.data.paid_at,
+    };
+    const updatedPayment = await payment.findByIdAndUpdate(
+      { _id: foundUser._id },
+      updateObject,
+      { new: true }
+    );
+    return responses.buildSuccessResponse("Transaction Noted", 200);
+  } catch (error) {
+    return responses.buildFailureResponse(
+      "Unable to get payment information",
+      200
+    );
+  }
+};
+
 module.exports = {
   initiatePayment,
+  paystackWebhook,
 };
