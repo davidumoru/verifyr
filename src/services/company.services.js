@@ -157,18 +157,9 @@ const login = async (payload) => {
       };
     }
 
-    const token = jwt.sign(
-      {
-        email: foundUser.email,
-        firstName: foundUser.firstName,
-        role: foundUser.role,
-        _id: foundUser._id,
-      },
-      process.env.JWT_SECRET,
-      {
-        expiresIn: "30d",
-      }
-    );
+    const token = jwt.sign({ _id: foundUser._id }, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
     foundUser.accessToken = token;
     return responses.buildSuccessResponse("Login successful", 200, foundUser);
   } catch (error) {
