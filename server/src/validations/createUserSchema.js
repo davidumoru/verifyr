@@ -10,6 +10,7 @@ const createUserSchema = Joi.object({
   companyRole: Joi.string().required(),
   dateOfBirth: Joi.string().required(),
   company: Joi.string().required(),
+  role: Joi.string().valid("admin", "user"),
 });
 
 module.exports = createUserSchema;
