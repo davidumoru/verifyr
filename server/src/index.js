@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const rateLimit = require("express-rate-limit");
 
+const userRouter = require("./routes/user.routes");
 const companyRouter = require("./routes/company.routes");
 const paymentRouter = require("./routes/payment.routes");
 const connectDB = require("./configs/database");
@@ -24,6 +25,7 @@ connectDB(process.env.MONGO_URI);
 
 app.use(express.json());
 app.use(limiter);
+app.use("/user", userRouter);
 app.use("/company", companyRouter);
 app.use("/payment", paymentRouter);
 
