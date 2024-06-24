@@ -1,10 +1,30 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const Joi = require("joi");
 const User = require("../models/user.models");
 const response = require("../utils/response");
 
+// Define Joi schemas
+const signupSchema = Joi.object({
+  firstName: Joi.string().min(1).required(),
+  lastName: Joi.string().min(1).required(),
+  email: Joi.string().email().required(),
+  password: Joi.string().min(6).required(),
+});
+
+const loginSchema = Joi.object({
+  email: Joi.string().email().required(),
+  password: Joi.string().min(6).required(),
+});
+
 const signup = async (payload) => {
   try {
+    // Validate payload against schema
+    const { error } = signupSchema.validate(payload);
+    if (error) {
+      return response.buildFailureResponse(error.details[0].message, 400);
+    }
+
     const { firstName, lastName, email, password } = payload;
 
     const existingUser = await User.findOne({ email });
@@ -41,6 +61,12 @@ const signup = async (payload) => {
 
 const login = async (payload) => {
   try {
+    // Validate payload against schema
+    const { error } = loginSchema.validate(payload);
+    if (error) {
+      return response.buildFailureResponse(error.details[0].message, 400);
+    }
+
     const { email, password } = payload;
 
     const user = await User.findOne({ email });
@@ -66,4 +92,4 @@ const login = async (payload) => {
   }
 };
 
-module.exports = { signup, login }
+module.exports = { signup, login };
