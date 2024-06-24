@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const rateLimit = require("express-rate-limit");
+const bodyParser = require("body-parser");
 
 const userRouter = require("./routes/user.routes");
 const companyRouter = require("./routes/company.routes");
@@ -11,6 +12,7 @@ const connectDB = require("./configs/database");
 dotenv.config();
 const app = express();
 app.use(cors());
+app.use(bodyParser.json());
 const PORT = process.env.PORT || 3001;
 
 const limiter = rateLimit({
