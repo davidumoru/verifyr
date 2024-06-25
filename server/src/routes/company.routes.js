@@ -14,10 +14,15 @@ router.post(
   authMiddleware.authenticate,
   companyControllers.createStaff
 );
-router.post("/create-account", companyControllers.createAccount);
-router.post("/login", companyControllers.login);
-router.post("/forgot-password", companyControllers.forgotPassword);
-router.get("/staff", companyControllers.searchStaff);
-router.get("/", companyControllers.getAllCompanies);
+router.get(
+  "/staff",
+  authMiddleware.authenticate,
+  companyControllers.searchStaff
+);
+router.get(
+  "/",
+  authMiddleware.authenticate,
+  companyControllers.getAllCompanies
+);
 
 module.exports = router;
