@@ -175,27 +175,3 @@ The project includes the following endpoints:
 }
 ```
 
-## Technologies
-
-The project includes the following technologies:
-
-- Node.js
-- Express.js
-- MongoDB
-- bcrypt
-- jsonwebtoken
-- SendGrid
-
-## Contributing
-
-Contributions are welcome! If you would like to contribute to this project, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix: `git checkout -b feature-name`
-3. Make changes and Commit them: `git commit -m "Add some feature"`
-4. Push the branch to your forked repository: `git push origin feature-name`
-5. Submit a pull request with a description of your changes.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt) file for more information.
