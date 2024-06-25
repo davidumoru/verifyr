@@ -1,10 +1,9 @@
 const paymentServices = require("../services/payment.services");
 
-// initiate- payment controller
-const initiatePayment = async (req, res) => {
+const initializePayment = async (req, res) => {
   try {
-    const response = await paymentServices.initiatePayment(req.user);
-    res.status(response.statusCode).json(response);
+    const data = await paymentServices.initializePayment(req.body);
+    res.status(data.statusCode).json(data);
   } catch (error) {
     return res.status(500).json({
       message: "Unable to make payment",
@@ -13,7 +12,6 @@ const initiatePayment = async (req, res) => {
   }
 };
 
-// paystack webhook controller
 const paystackWebhook = async (req, res) => {
   try {
     const response = await paymentServices.paystackWebhook(req.body);
@@ -26,4 +24,4 @@ const paystackWebhook = async (req, res) => {
   }
 };
 
-module.exports = { initiatePayment, paystackWebhook };
+module.exports = { initializePayment, paystackWebhook };
