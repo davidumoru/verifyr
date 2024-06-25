@@ -12,7 +12,7 @@
     </div>
     <div class="btn">
       <button class="color-btn">Get Started</button>
-      <button class="transparent-btn">Watch Our Features</button>
+      <button class="transparent-btn">Explore Our Features</button>
     </div>
   </div>
 </template>
@@ -25,52 +25,28 @@ export default {
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
-
-* {
-  font-family: "Space Grotesk", sans-serif;
-  color: floralwhite;
-}
-
 .section {
-  background-color: rgb(17, 74, 84);
   text-align: left;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 92vh;
-  padding-left: 18rem;
+  height: 70vh;
+  padding-left: 13rem;
 }
 
 .hero {
-  font-size: 6em;
+  font-size: 4.5em;
   font-weight: 700;
   line-height: 100%;
 }
 
 .sub-hero {
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: 400;
   line-height: 120%;
-  margin: 1.8em 0;
+  margin: 2em 0;
 }
-
-button {
-  padding: 20px 35px;
-  border-radius: 40px;
-  font-size: 1.3em;
-  font-weight: 600;
-}
-
-.transparent-btn {
-  background-color: rgb(17, 74, 84);
-  color: floralwhite;
-  border-color: floralwhite;
-}
-
 .color-btn {
-  background-color: rgb(233, 245, 73);
-  color: rgb(17, 74, 84);
   margin-right: 25px;
 }
 </style>
