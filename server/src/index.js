@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const rateLimit = require("express-rate-limit");
 const bodyParser = require("body-parser");
+const path = require("path");
 
 const userRouter = require("./routes/user.routes");
 const companyRouter = require("./routes/company.routes");
@@ -31,10 +32,12 @@ app.use("/user", userRouter);
 app.use("/company", companyRouter);
 app.use("/payment", paymentRouter);
 
-app.get("/", (req, res) => {
-  res.status(200).json({
-    message: "I am running",
-  });
+// Serve static files from the Vue app
+app.use(express.static(path.join(__dirname, 'dist')));
+
+// Add a catch-all route to handle all other requests
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 app.listen(PORT, () => {
