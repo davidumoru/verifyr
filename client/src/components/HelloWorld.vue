@@ -15,6 +15,13 @@
       <button class="transparent-btn">Explore Our Features</button>
     </div>
   </div>
+  <div class="partners">
+    <div>Meet Out Partners</div>
+    <img :src="require('@/assets/logo1.svg')" alt="logo1" />
+    <img :src="require('@/assets/logo2.svg')" alt="logo2" />
+    <img :src="require('@/assets/logo3.svg')" alt="logo3" />
+    <img :src="require('@/assets/logo4.svg')" alt="logo4" />
+  </div>
 </template>
 
 <script>
@@ -26,12 +33,13 @@ export default {
 
 <style scoped>
 .section {
+  background-color: rgb(17, 74, 84);
   text-align: left;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 70vh;
-  padding-left: 13rem;
+  height: 83vh;
+  padding: 0 13rem;
 }
 
 .hero {
@@ -48,5 +56,15 @@ export default {
 }
 .color-btn {
   margin-right: 25px;
+}
+
+.partners {
+  background-color: floralwhite;
+  color: slategray;
+  font-size: 2em;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem 18rem;
 }
 </style>
